@@ -1,0 +1,20 @@
+/* Media queries aliases and breakpoints */
+$screen-xs-max: 320px;
+$screen-sm-max: 768px;
+
+@mixin xs {
+  @media (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin padding-marginZero {
+  margin: 0;
+  padding: 0;
+}

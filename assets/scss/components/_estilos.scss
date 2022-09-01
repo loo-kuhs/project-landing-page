@@ -1,0 +1,157 @@
+@use "./mixins";
+
+* {
+  box-sizing: border-box;
+  @include mixins.padding-marginZero;
+}
+
+body {
+  min-width: 20rem;
+}
+
+.me {
+  padding: 2rem;
+  overflow: hidden;
+
+  .my-bio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    figure {
+      img {
+        filter: grayscale(1);
+        width: 7rem;
+        border-radius: 50%;
+        border: 1px solid #050505;
+        transition: all 0.8s ease-out;
+      }
+      &:hover {
+        img {
+          filter: none;
+          border-radius: 10%;
+        }
+      }
+      figcaption {
+        font-size: 0.8rem;
+        text-align: center;
+      }
+    }
+
+    p {
+      margin-top: 1rem;
+      text-align: center;
+    }
+  }
+}
+
+.window-gallery {
+  max-width: 100%;
+  position: relative;
+
+  .gallery {
+    width: 100%;
+    padding: 0 2%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-auto-rows: 15rem;
+    grid-auto-flow: dense;
+    grid-gap: 10px;
+
+    .single-figure {
+      position: relative;
+      overflow: hidden;
+
+      &:nth-child(7n + 1) {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease-in-out;
+        filter: grayscale(1);
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #000000f2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 400ms ease-in;
+        z-index: 1;
+      }
+      &:hover {
+        img {
+          transform: scale(1.1);
+          filter: none;
+        }
+        .overlay {
+          opacity: 0.3;
+        }
+      }
+
+      figcaption {
+        text-align: center;
+        font-size: 2rem;
+        color: #fff;
+      }
+    }
+  }
+}
+
+::selection {
+  background-color: #050505;
+  color: #fff;
+}
+
+@include mixins.xs {
+  .me {
+    padding: 0;
+  }
+  body {
+    .window {
+      min-width: 18.125rem;
+
+      .title-bar {
+        .title {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .window-gallery {
+    .gallery {
+      font-size: 10px;
+      height: 100%;
+      padding: 0.6rem;
+    }
+  }
+}
+
+@include mixins.sm {
+  .me {
+    padding: 0;
+  }
+  .window-gallery {
+    .gallery {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-auto-rows: 250px;
+
+      .single-figure {
+        &:nth-child(7n + 1) {
+          grid-column: unset;
+          grid-row: unset;
+        }
+      }
+    }
+  }
+}
