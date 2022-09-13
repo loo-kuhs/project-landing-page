@@ -113,10 +113,17 @@ body {
 }
 
 @include mixins.xs {
-  .me {
-    padding: 0;
-  }
   body {
+    .me {
+      padding: 0;
+      .my-bio {
+        p {
+          font-size: 0.7rem;
+          text-align: justify;
+        }
+      }
+    }
+
     .window {
       min-width: 18.125rem;
 
@@ -140,6 +147,12 @@ body {
 @include mixins.sm {
   .me {
     padding: 0;
+    .my-bio {
+      p {
+        font-size: 0.9rem;
+        text-align: justify;
+      }
+    }
   }
   .window-gallery {
     .gallery {

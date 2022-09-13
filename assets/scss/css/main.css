@@ -99,8 +99,12 @@ body {
 }
 
 @media (max-width: 320px) {
-  .me {
+  body .me {
     padding: 0;
+  }
+  body .me .my-bio p {
+    font-size: 0.7rem;
+    text-align: justify;
   }
   body .window {
     min-width: 18.125rem;
@@ -117,6 +121,10 @@ body {
 @media (max-width: 768px) {
   .me {
     padding: 0;
+  }
+  .me .my-bio p {
+    font-size: 0.9rem;
+    text-align: justify;
   }
   .window-gallery .gallery {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
