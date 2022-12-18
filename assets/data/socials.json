@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "{{cosplayer_social_name}}",
+    "url": "https://twitter.com/"
+  },
+  {
+    "id": 2,
+    "name": "{{cosplayer_social_name}}",
+    "url": "https://www.patreon.com/"
+  },
+  {
+    "id": 3,
+    "name": "{{cosplayer_social_name}}",
+    "url": "https://www.facebook.com/"
+  }
+]
